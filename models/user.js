@@ -4,7 +4,7 @@ var roles = 'user staff mentor investor founder'.split(' ');
 
 
 userSchema = new Schema({
-  username: {
+  firstName: {
 	type: String,
 	required: true,
 	trim: true
@@ -14,7 +14,7 @@ userSchema = new Schema({
     required: true,
     trim: true
   },
-  displayName: {
+  username: {
     type: String,
     required: true,
     trim: true
