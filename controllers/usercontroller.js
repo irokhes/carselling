@@ -1,9 +1,11 @@
-var User = require('./models/users.js');
+var User = require('../models/user.js');
 
 
 exports.getAll = function (req, res, next){
-	User.find(function (err, users) {
+	console.log('getting all users');
+	User.find({}, function (err, users) {
 	  if (err) return console.error(err);
+	  console.log(users);
 	  res.send(users);
 	});
 };

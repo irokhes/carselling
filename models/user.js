@@ -1,20 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var roles = 'user staff mentor investor founder'.split(' ');
 
 
 userSchema = new Schema({
-  firstName: {
-	type: String,
-	required: true,
-	trim: true
-  }
-  lastName: {
+  username: {
     type: String,
     required: true,
     trim: true
   },
-  username: {
+  firstName: {
+	type: String,
+	required: true,
+	trim: true
+  },
+  lastName: {
     type: String,
     required: true,
     trim: true
@@ -42,3 +41,5 @@ userSchema = new Schema({
 // Compile a 'User' model using the userSchema as the structure.
 // Mongoose also creates a MongoDB collection called 'Users' for these documents.
 var User = mongoose.model('User', userSchema);
+
+module.exports = User;
