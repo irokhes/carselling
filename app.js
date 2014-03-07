@@ -1,5 +1,7 @@
 var express = require('express');
 var http = require('http');
+var mongoose = require('mongoose');
+var dbConnString  = 'mongodb://localhost/carselling';
 
 
 var app = express();
@@ -12,13 +14,13 @@ app.configure(function(){
 
 require('./configs/routes.js')(app);
 
-var dbUrl = process.env.MONGOHQ_URL || 'mongodb://@127.0.0.1:27017/carselling';
-var mongoose = require('mongoose');
-var connection = mongoose.createConnection(dbUrl);
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.once('open', function () {
-  console.info('connected to database')
-})
 
+mongoose.connect(dbConnString, function(err, res){
+	if(err){
+		console.log('Error connection to: ' + dbConnString + '! ' + err);		
+	} else {
+		console.log('Successfully connected to: ' + dbConnString);
+	}
+});
 
 app.listen(3000);

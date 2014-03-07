@@ -1,3 +1,4 @@
+db = db.getSiblingDB('carselling');
 db.dropDatabase();
 var seedUser ={
   firstName:'Azat',
