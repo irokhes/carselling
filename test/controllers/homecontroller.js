@@ -1,9 +1,9 @@
-var should = require('should');
-var request = require('request'),
+var assert = require('assert');
+var request = require('request');
 
 describe("Routing home controller test", function(){
-	describe("Default route", function(){
-		it ("should show the home", function(done){
+	describe("When an user enter in the home page", function(){
+		it ("should show the welcome message", function(done){
 		   request.get('/').expect(200);
 			done();
 		   });
