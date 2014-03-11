@@ -25,7 +25,8 @@ exports.get = function(req, res){
 };
 
 exports.create = function(req, res){
-	var product;
+	var user;
 	console.log('Post : ');
 	console.log(req.body);
+	user = 
 };
