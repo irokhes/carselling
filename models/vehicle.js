@@ -3,10 +3,11 @@ var Schema = mongoose.Schema;
 
 
 vehicleSchema = new Schema({
-  username: {
+  model: {
     type: String,
     required: true,
     trim: true
+	}
 });
 
 // Compile a 'Vehicle' model using the userSchema as the structure.

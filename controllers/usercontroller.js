@@ -71,5 +71,5 @@ exports.delete = function(req, res){
 				console.log(err);
 			}
 		});
-	};
+	});
 };

@@ -13,7 +13,7 @@ var routes = function (app){
 	
 	app.post('/users', usercontroller.create);
 	
-	app.update('/users:id', usercontroller.update);
+	app.put('/users:id', usercontroller.update);
 	
 	app.delete('/users:id', usercontroller.delete);
 	
@@ -25,7 +25,7 @@ var routes = function (app){
 	
 	app.post('/vehicles', vehiclecontroller.create);
 	
-	app.update('/vehicles:id', vehiclecontroller.update);
+	app.put('/vehicles:id', vehiclecontroller.update);
 	
 	app.delete('/vehicles:id', vehiclecontroller.delete);
 }
