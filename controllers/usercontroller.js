@@ -1,11 +1,11 @@
-var User = require('../models/user.js');
+var User = require('../models/models.js').User;
 
 
 exports.getAll = function (req, res){
-	console.log('getting all users');
-	return User.find(function (err, products) {
+	console.log('getting all Model.Users');
+	return User.find(function (err, user) {
     if (!err) {
-      return res.send(products);
+      return res.send(user);
     } else {
       return console.log(err);
     }
@@ -14,7 +14,7 @@ exports.getAll = function (req, res){
 
 exports.get = function(req, res){
 	var id = req.params.id;
-	console.log('getting user id: ' + id);
+	console.log('getting Model.User id: ' + id);
 	return User.findById(id, function (err, user) {
     if (!err) {
       return res.send(user);
@@ -28,22 +28,23 @@ exports.create = function(req, res){
 	var user;
 	console.log('Post : ');
 	console.log(req.body);
-	user = new User({
-		username: req.body.username,
+	user = new Model.User({
+		username: req.body.Model.Username,
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
+		email: req.body.email,
 		password: req.body.password,
-		approved: false,
+		approved: true,
 		banned: false
 	});
-	product.save(function (err) {
+	User.save(function (err) {
 		if (!err) {
 		  return console.log("created");
 		} else {
 		  return console.log(err);
 		}
 	});
-	return res.send(product);	
+	return res.send(user);	
 };
 
 exports.update = function(req, res){
@@ -51,7 +52,7 @@ exports.update = function(req, res){
 		user.firstName = req.body.firstName;
 		user.lastName = req.body.lastName;
 		
-		return user.save(function(err){
+		return User.save(function(err){
 			if(!err){
 				console.log('updated');
 			}else{
@@ -64,7 +65,7 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
 	return User.findeById(req.params.id, function(err, user){
-		return user.remove(function(err){
+		return User.remove(function(err){
 			if(!err){
 				console.log('deleted');
 			}else{

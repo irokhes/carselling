@@ -23,11 +23,11 @@ var routes = function (app){
 	
 	app.get('/vehicles/:id', vehiclecontroller.get);
 	
-	app.post('/vehicles', vehiclecontroller.create);
+	app.post('/vehicles/:id', vehiclecontroller.create);
 	
-	app.put('/vehicles:id', vehiclecontroller.update);
+	app.put('/vehicles/:id', vehiclecontroller.update);
 	
-	app.delete('/vehicles:id', vehiclecontroller.delete);
+	app.delete('/vehicles/:id', vehiclecontroller.delete);
 }
 
 module.exports = routes;
