@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var vehicle = require('vehicle.js');
 var Schema = mongoose.Schema;
 
 
@@ -35,7 +36,8 @@ userSchema = new Schema({
   admin: {
     type: Boolean,
     default: false
-  }
+  },
+  vehicles: [vehicle]
 });
 
 // Compile a 'User' model using the userSchema as the structure.
