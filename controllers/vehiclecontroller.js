@@ -14,8 +14,8 @@ exports.create = function(req, res){
 	console.log('getting Model.User id: ' + userId);
 	return User.findById(userId, function (err, user) {
     
-      User.vehicles.push(new Vehicle({model: req.body.model}));
-      return User.save(function(err){
+      user.vehicles.push(new Vehicle({model: req.body.model}));
+      return user.save(function(err){
       	if(!err)
       		console.log('Vehicle added to User collection');
       	else

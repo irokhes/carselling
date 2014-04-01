@@ -21,6 +21,7 @@ userSchema = new Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
     trim: true
   },
   firstName: {
@@ -55,7 +56,7 @@ userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  vehicles: [Vehicle]
+  vehicles: [vehicleSchema]
 });
 
 // Compile a 'User' model using the userSchema as the structure.

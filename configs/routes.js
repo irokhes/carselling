@@ -13,9 +13,9 @@ var routes = function (app){
 	
 	app.post('/users', usercontroller.create);
 	
-	app.put('/users:id', usercontroller.update);
+	app.put('/users/:id', usercontroller.update);
 	
-	app.delete('/users:id', usercontroller.delete);
+	app.delete('/users/:id', usercontroller.delete);
 	
 	
 	//Vehicle

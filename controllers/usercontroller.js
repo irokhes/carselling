@@ -28,8 +28,8 @@ exports.create = function(req, res){
 	var user;
 	console.log('Post : ');
 	console.log(req.body);
-	user = new Model.User({
-		username: req.body.Model.Username,
+	user = new User({
+		username: req.body.username,
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
 		email: req.body.email,
@@ -37,7 +37,7 @@ exports.create = function(req, res){
 		approved: true,
 		banned: false
 	});
-	User.save(function (err) {
+	user.save(function (err) {
 		if (!err) {
 		  return console.log("created");
 		} else {
@@ -52,7 +52,7 @@ exports.update = function(req, res){
 		user.firstName = req.body.firstName;
 		user.lastName = req.body.lastName;
 		
-		return User.save(function(err){
+		return user.save(function(err){
 			if(!err){
 				console.log('updated');
 			}else{
@@ -65,7 +65,7 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
 	return User.findeById(req.params.id, function(err, user){
-		return User.remove(function(err){
+		return user.remove(function(err){
 			if(!err){
 				console.log('deleted');
 			}else{
